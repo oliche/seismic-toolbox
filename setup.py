@@ -1,4 +1,5 @@
 import setuptools
+from distutils.core import setup, Extension
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -8,7 +9,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="seismic-toolbox",
-    version="0.0.0",
+    version="0.0.1",
     author="Olivier Winter",
     description="Seismic toolbox for numpy",
     long_description=long_description,
@@ -25,6 +26,7 @@ setuptools.setup(
     install_requires=require,
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where="src"),
-    # package_data={'easyqc': ['easyqc.ui', 'easyqc.svg']},
+    package_data={'seistools': ['sampleconversion.x86_64.so']},
     python_requires=">=3.7",
+    ext_modules=[Extension("seistools", ["./src/seistools/sampleconversion.c"])]
 )
