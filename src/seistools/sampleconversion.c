@@ -2,7 +2,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-// windows compilation:
+// Reference: https://realpython.com/build-python-c-extension-module/#extending-your-python-program
+
+// manual compilations: windows:
 // cl /LD sampleconversion.c
 // need to add a flag for dll export before the function declaration
 //__declspec(dllexport) void ibm_to_float(int from[], int to[], int n, int endian, int verbose)
@@ -13,6 +15,7 @@
 // Mac OS compilation (for M1, be sure to cross-compile for the python architecture as below)
 // clang -shared -o  sampleconversion.x86_64.so  sampleconversion.c -arch x86_64
 // lipo -info sampleconversion.x86_64.so
+
 
 void ibm_to_float(int from[], int to[], int n, int endian, int verbose)
 /***********************************************************************

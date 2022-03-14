@@ -1,5 +1,5 @@
 import setuptools
-from distutils.core import setup, Extension
+from distutils.core import Extension
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -28,5 +28,5 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     package_data={'seistools': ['sampleconversion.x86_64.so']},
     python_requires=">=3.7",
-    ext_modules=[Extension("seistools", ["./src/seistools/sampleconversion.c"])]
+    ext_modules=[Extension("seistools.sampleconversion", ["./src/seistools/sampleconversion.c"])]
 )

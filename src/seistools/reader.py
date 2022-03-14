@@ -37,10 +37,10 @@ def bcd2dec(bcd):
 def _load_ibm2float_shared_library():
     # Try to locate the .so file in the same directory as this file
     if os.name == 'nt':
-        _file = 'sampleconversion.dll'
+        pattern = 'sampleconversion.*.dll'
     else:
-        _file = 'sampleconversion.x86_64.so'
-    library_path = Path(__file__).parent.joinpath(_file)
+        pattern = 'sampleconversion.*.so'
+    library_path = next(Path(__file__).parent.glob(pattern))
     return ctypes.cdll.LoadLibrary(library_path)
 
 

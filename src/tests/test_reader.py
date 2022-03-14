@@ -23,7 +23,7 @@ class TestReaderSegy(unittest.TestCase):
     def setUp(self) -> None:
         self.segy_file_int = TEST_DATA_FOLDER.joinpath('l10f1.sgy')
         if not self.segy_file_int.exists():
-            logger.warning(f'Downloading {self.segy_file}')
+            logger.warning(f'Downloading {self.segy_file_int}')
             urllib.request.urlretrieve(
                 "https://pubs.usgs.gov/of/1999/of99-449/disc2/seg_y/l10f1.sgy",
                 self.segy_file_int

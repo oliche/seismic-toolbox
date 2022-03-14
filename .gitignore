@@ -131,4 +131,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-src/tests/data/
+/src/tests/data/l10f1.sgy
